@@ -1,0 +1,19 @@
+nav {
+    padding: 0px !important;
+}
+
+img {
+
+    display: block;
+    width: 250px;
+    object-fit: cover;
+    height: 250px !important;
+
+}
+.create-btn a {
+    transition: 0.3s all ease;
+}
+.create-btn:hover a {
+    color: white !important;
+    transition: 0.3s all ease;
+}

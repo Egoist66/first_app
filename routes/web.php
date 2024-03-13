@@ -17,26 +17,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home.index');
 //Route::get('/', function () {return view('welcome');});
-Route::get('/posts', [PostsController::class, 'index'])->name('post.index');
 Route::get('/employees', [EmployeesController::class, 'index']);
-Route::get('/posts/create', [PostsController::class, 'create']);
-
-Route::get('/posts/first_or_create', [PostsController::class, 'firstOrCreate']);
-Route::get('/posts/update_or_create', [PostsController::class, 'updateOrCreate']);
-Route::get('/posts/update', [PostsController::class, 'update']);
-Route::get('/posts/delete', [PostsController::class, 'delete']);
-
-Route::get('/posts/{id}', [PostsController::class, 'get']);
-Route::get('/posts/delete/{id}', [PostsController::class, 'deletePostById']);
-Route::get('/posts/restore/{id}', [PostsController::class, 'restorePostById']);
 Route::get('/employees/{employee}', function(\App\Models\Employee $employee){
 
     return $employee;
 });
 
+
+
+//Route::get('/posts/{id}', [PostsController::class, 'show'])->where('id', '[0-9]+')->name('post.show');
+Route::get('/posts/create', [PostsController::class, 'create'])->name('post.create');
+Route::get('/posts', [PostsController::class, 'index'])->name('post.index');
+Route::get('/posts/{post}', [PostsController::class, 'show'])->name('post.show');
+
+Route::get('/posts/{post}/edit', [PostsController::class, 'edit'])->name('post.edit');
+Route::patch('/posts/{post}', [PostsController::class, 'update'])->name('post.update');
+Route::post('/posts', [PostsController::class, 'store'])->name('post.store');
+Route::delete('/posts/{post}', [PostsController::class, 'destroy'])->name('post.delete');
+
+
+
 Route::view('/about', 'about')->name('about.index');
 Route::view('/contact', 'contact')->name('contact.index');
-
 Route::fallback(function (){
    return "<h2>Not found</h2>";
 });
