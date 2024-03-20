@@ -3,7 +3,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Dto\PostDto;
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Throwable;
@@ -14,8 +17,13 @@ class PostsController extends Controller
     public final function index(): View
     {
 
-        $posts = Post::all();
-        return view('post.index', ["posts" => $posts]);
+        $category = Category::query()->find(1);
+        //$posts = Post::query()->get()->where('category_id', $category->id);
+        $post = Post::query()->find(1);
+        $tag = Tag::query()->find(1);
+        dd($tag->posts);
+
+        return view('post.index', ["posts" => $category->posts]);
     }
 
 //    public final function show(string $id): mixed
@@ -24,10 +32,12 @@ class PostsController extends Controller
 //        return view('post.show', ["post" => $post]);
 //    }
 
+
+
     public final function show(Post $post): View
     {
 
-        return view('post.show', ["post" => $post]);
+        return view('post.show', ["post" => new PostDto($post)]);
     }
 
     public final function create(): View
@@ -40,7 +50,7 @@ class PostsController extends Controller
     public final function edit(Post $post): View
     {
 
-        return view('post.edit', ["post" => $post]);
+        return view('post.edit', ["post" => new PostDto($post)]);
 
     }
 

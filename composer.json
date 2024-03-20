@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -11,7 +14,9 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "laravel/ui": "^4.5"
+        "laravel/ui": "^4.5",
+        "ext-libxml": "*",
+        "ext-dom": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -36,9 +41,13 @@
         }
     },
     "scripts": {
-       "dev": "php artisan serve",
-        "down": ["php artisan down --refresh=5"],
-        "up": ["php artisan up"],
+        "dev": "php artisan serve",
+        "down": [
+            "php artisan down --refresh=5"
+        ],
+        "up": [
+            "php artisan up"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

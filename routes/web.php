@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,7 @@ Route::post('/posts', [PostsController::class, 'store'])->name('post.store');
 Route::delete('/posts/{post}', [PostsController::class, 'destroy'])->name('post.delete');
 
 
-
+Route::resource('photos', PhotoController::class);
 Route::view('/about', 'about')->name('about.index');
 Route::view('/contact', 'contact')->name('contact.index');
 Route::fallback(function (){

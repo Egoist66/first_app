@@ -26,11 +26,14 @@
                                  src="https://new.cblu.ac.in/wp-content/uploads/2021/08/placeholder.jpg">
 
                         @else
-                            <img class="img-fluid" src="{{$post->image}}">
+                            <a target="_blank" href="{{$post->image}}">
+                                <img class="img-fluid" src="{{$post->image}}">
+                            </a>
                         @endif
                     </div>
                     <h2>{{$post->title}}</h2>
                     <p>id: {{$post->id}}</p>
+                    <p>category: <b>{{$post->category_id === 1 ? 'Cats' : 'Dogs'}}</b></p>
                     <p><b class="bg-primary-subtle p-2">created at: {{$post->created_at}}</b></p>
                     <p><b class="bg-primary-subtle p-2">updated at: {{$post->updated_at}}</b></p>
                     <div class="row">
