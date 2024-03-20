@@ -11,6 +11,7 @@ class PostDto
     public string $image;
     public string $id;
     public string $content;
+    public string $category_id;
 
     public function __construct(Post $post)
     {
@@ -18,5 +19,6 @@ class PostDto
         $this->image = $post->image;
         $this->id = $post->id;
         $this->content = $post->content;
+        $this->category_id = $post->category_id;
     }
 }

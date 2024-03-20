@@ -17,13 +17,14 @@ class PostsController extends Controller
     public final function index(): View
     {
 
-        $category = Category::query()->find(1);
+        $posts = Post::all();
+        //$category = Category::query()->find(1);
         //$posts = Post::query()->get()->where('category_id', $category->id);
-        $post = Post::query()->find(1);
-        $tag = Tag::query()->find(1);
-        dd($tag->posts);
+        //$post = Post::query()->find(1);
+        //$tag = Tag::query()->find(1);
 
-        return view('post.index', ["posts" => $category->posts]);
+
+        return view('post.index', ["posts" => $posts]);
     }
 
 //    public final function show(string $id): mixed
@@ -31,7 +32,6 @@ class PostsController extends Controller
 //        $post = Post::query()->findOrFail((int) $id);
 //        return view('post.show', ["post" => $post]);
 //    }
-
 
 
     public final function show(Post $post): View
@@ -42,15 +42,19 @@ class PostsController extends Controller
 
     public final function create(): View
     {
+        $categories = Category::all();
 
-        return view('post.create');
+        return view('post.create', ["categories" => $categories]);
 
     }
 
     public final function edit(Post $post): View
     {
-
-        return view('post.edit', ["post" => new PostDto($post)]);
+        $categories = Category::all();
+        return view('post.edit', [
+            "post" => new PostDto($post),
+            "categories" => $categories
+        ]);
 
     }
 
@@ -59,7 +63,8 @@ class PostsController extends Controller
         $data = request()->validate([
             'title' => 'string',
             'content' => 'string',
-            'image' => 'string'
+            'image' => 'string',
+            'category_id' => 'string'
         ]);
 
         if (Post::query()->create($data)) {
@@ -72,11 +77,13 @@ class PostsController extends Controller
     /**
      * @throws Throwable
      */
-    public final  function  update(Post $post) : RedirectResponse{
+    public final function update(Post $post): RedirectResponse
+    {
         $data = request()->validate([
             'title' => 'string',
             'content' => 'string',
-            'image' => 'string'
+            'image' => 'string',
+            'category_id' => 'string'
         ]);
 
         $post->updateOrFail($data);
@@ -95,7 +102,6 @@ class PostsController extends Controller
 
 
     }
-
 
 
 }

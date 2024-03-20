@@ -26,7 +26,7 @@
                                  src="https://new.cblu.ac.in/wp-content/uploads/2021/08/placeholder.jpg">
 
                         @else
-                            <a target="_blank" href="{{$post->image}}">
+                            <a style="width: 250px; display: block" target="_blank" href="{{$post->image}}">
                                 <img class="img-fluid" src="{{$post->image}}">
                             </a>
                         @endif

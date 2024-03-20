@@ -21,10 +21,19 @@
 
             <div class="mb-3">
                 <label for="postImage" class="form-label">Insert post image URL</label>
-                <input name="image"  type="url" class="form-control" id="postImage">
+                <input name="image" type="url" class="form-control" id="postImage">
             </div>
 
-            <button  type="submit" class="btn btn-primary">Create</button>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" name="category_id" class="form-select">
+                    <option disabled selected>Choose category</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{ucfirst($category->title)}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
 
 
         </form>
