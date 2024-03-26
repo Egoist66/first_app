@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home.index');
 //Route::get('/', function () {return view('welcome');});
 Route::get('/employees', [EmployeesController::class, 'index']);
 Route::get('/employees/{employee}', function(\App\Models\Employee $employee){
@@ -43,6 +42,8 @@ Route::view('/contact', 'contact')->name('contact.index');
 Route::fallback(function (){
    return "<h2>Not found</h2>";
 });
+;
+
 
 
 //function myFunction($param1, $param2, $param3) {

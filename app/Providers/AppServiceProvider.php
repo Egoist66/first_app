@@ -19,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        //   View::share('key', 'value'); глобальные данные для шаблнов
     }
 }

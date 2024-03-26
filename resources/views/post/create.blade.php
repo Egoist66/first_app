@@ -33,6 +33,15 @@
                     @endforeach
                 </select>
             </div>
+            <div class="mb-3">
+                <label for="tags" class="form-label">Choose tags</label>
+                <select name="tags[]" size="3" id="tags" class="form-select" multiple>
+                    @foreach($tags as $tag)
+                        <option  value="{{$tag->id}}">{{ucfirst($tag->title)}}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Create</button>
 
 
