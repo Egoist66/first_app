@@ -16,16 +16,17 @@ use Throwable;
 class PostsController extends Controller
 {
 
-    public final function index(Request $request): View
+    final public function index(Request $request): View
     {
 
-        $posts = Post::all();
+        $posts = PostDto::adaptPosts(Post::all());
         //$category = Category::query()->find(1);
         //$posts = Post::query()->get()->where('category_id', $category->id);
         //$post = Post::query()->find(1);
         //$tag = Tag::query()->find(1);
 
         //return redirect()->away('https://www.google.com');
+
         return view('post.index', ["posts" => $posts]);
     }
 
@@ -36,13 +37,13 @@ class PostsController extends Controller
 //    }
 
 
-    public final function show(Post $post): View
+    final public function show(Post $post): View
     {
 
         return view('post.show', ["post" => new PostDto($post)]);
     }
 
-    public final function create(): View
+    final public function create(): View
     {
         $categories = Category::all();
         $tags = Tag::all();
@@ -57,7 +58,7 @@ class PostsController extends Controller
 
     }
 
-    public final function edit(Request $request, Post $post): View
+    final public function edit(Request $request, Post $post): View
     {
 
         $categories = Category::all();
@@ -68,7 +69,7 @@ class PostsController extends Controller
 
     }
 
-    public final function store(): RedirectResponse
+    final public function store(): RedirectResponse
     {
         $data = request()->validate([
             'title' => 'string',
@@ -93,7 +94,7 @@ class PostsController extends Controller
             $post->tags()->attach($tags);
 
             return redirect()->route('post.index');
-            
+
         }
 
         return redirect()->route('post.create');
@@ -102,7 +103,7 @@ class PostsController extends Controller
     /**
      * @throws Throwable
      */
-    public final function update(Post $post): RedirectResponse
+    final public function update(Post $post): RedirectResponse
     {
         $data = request()->validate([
             'title' => 'string',
@@ -120,7 +121,7 @@ class PostsController extends Controller
     /**
      * @throws Throwable
      */
-    public final function destroy(Post $post): RedirectResponse
+    final public function destroy(Post $post): RedirectResponse
     {
         $post->delete();
         return redirect()->route('post.index');

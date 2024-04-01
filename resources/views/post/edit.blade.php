@@ -32,7 +32,8 @@
 
                     @foreach($categories as $category)
 
-                        <option {{(int) $category->id === (int)$post->category_id ? "selected": ""}} value="{{$category->id}}">{{ucfirst($category->title)}}</option>
+                        <option
+                            {{(int) $category->id === (int)$post->category_id ? "selected": ""}} value="{{$category->id}}">{{ucfirst($category->title)}}</option>
                     @endforeach
                 </select>
             </div>

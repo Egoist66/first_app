@@ -18,12 +18,12 @@ class Post extends Model
 
     //protected $fillable = ['title', 'content', 'image', 'likes', 'is_published'];
 
-    public final function category(): BelongsTo
+    final public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public final function tags(): BelongsToMany
+    final public function tags(): BelongsToMany
     {
         return $this->belongsToMany(
             Tag::class,

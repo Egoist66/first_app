@@ -147,3 +147,29 @@ class PostsController extends Controller
 //}
 //
 //dump(sum(1, 2, 3, 4, 5));
+
+
+//function myFunction($param1, $param2, $param3) {
+//    // код функции
+//}
+//
+//$reflection = new ReflectionFunction('myFunction');
+//$parameters = $reflection->getParameters();
+//
+//foreach ($parameters as $parameter) {
+//    $parameterName = $parameter->getName();
+//    echo "Parameter name: $parameterName\n";
+//}
+
+
+Route::get('/posts/create', [PostsController::class, 'create'])->name('post.create');
+Route::get('/posts', [PostsController::class, 'index'])->name('post.index');
+Route::get('/posts/{post}', [PostsController::class, 'show'])->name('post.show');
+
+Route::get('/posts/{post}/edit', [PostsController::class, 'edit'])->name('post.edit');
+Route::patch('/posts/{post}', [PostsController::class, 'update'])->name('post.update');
+Route::post('/posts', [PostsController::class, 'store'])->name('post.store');
+Route::delete('/posts/{post}', [PostsController::class, 'destroy'])->name('post.delete');
+
+
+//Route::get('/posts/{id}', [PostsController::class, 'show'])->where('id', '[0-9]+')->name('post.show');

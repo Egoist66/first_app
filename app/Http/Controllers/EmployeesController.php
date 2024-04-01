@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class EmployeesController extends Controller
 {
-    public final function index(): mixed {
+    final public function index(): void {
         $employee = Employee::query()->find(1);
         dd($employee);
     }
