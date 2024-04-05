@@ -15,6 +15,11 @@
             </div>
 
         </div>
+        @if(!count($posts))
+
+            <h2>No posts</h2>
+
+        @endif
         @foreach($posts as $post)
 
             <div style="border: none" class="card mb-3 shadow">
@@ -33,7 +38,7 @@
                     </div>
                     <h2>{{$post->title}}</h2>
                     <p>id: {{$post->id}}</p>
-                    <p>category: <b>{{$post->category_id === 1 ? 'Cats' : 'Dogs'}}</b></p>
+                    <p>category: <b>{{(int)$post->category_id === 1 ? 'Cats' : 'Dogs'}}</b></p>
                     <p><b class="bg-primary-subtle p-2">created at: {{$post->created_at}}</b></p>
                     <p><b class="bg-primary-subtle p-2">updated at: {{$post->updated_at}}</b></p>
                     <div class="row">

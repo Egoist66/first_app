@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\old;
 
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -20,6 +22,7 @@ class Post extends Model
 
     final public function category(): BelongsTo
     {
+
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 

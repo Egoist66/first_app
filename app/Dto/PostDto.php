@@ -9,7 +9,7 @@ class PostDto
 {
     private Post $post;
     public string $title;
-    public string $image;
+    public string | null $image;
     public string $id;
     public string $content;
     public string $category_id;
@@ -25,6 +25,7 @@ class PostDto
         $this->category_id = $post->category_id;
         $this->created_at = $post->created_at;
         $this->updated_at = $post->updated_at;
+        $this->tags = $post->tags;
     }
 
     final public static function adaptPosts(Collection $posts): array

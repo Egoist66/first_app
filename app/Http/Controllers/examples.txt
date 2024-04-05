@@ -1,6 +1,7 @@
 <?php
 
 
+ php artisan make:migration create_post_tag_table --create
 
 namespace App\Http\Controllers;
 
