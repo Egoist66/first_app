@@ -29,7 +29,7 @@ class PostsController extends Controller
         //$tag = Tag::query()->find(1);
 
         //return redirect()->away('https://www.google.com');
-        dd($post->tags);
+//        dd($post->tags);
         return view('post.index', ["posts" => $posts]);
     }
 

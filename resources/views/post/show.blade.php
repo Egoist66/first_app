@@ -26,7 +26,7 @@
         </div>
 
         <div>
-            <form method="post" action="{{route('post.delete', $post->id)}}">
+            <form method="post" action="{{route('post.destroy', $post->id)}}">
                 @method('delete')
                 @csrf
 

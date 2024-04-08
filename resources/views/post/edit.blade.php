@@ -9,7 +9,7 @@
 
         <form method="post" action="{{route('post.update', $post?->id)}}">
             @csrf
-            @method('patch')
+            @method('put')
             <div class="mb-3">
                 <label for="postInput" class="form-label">Edit post title</label>
                 <input value="{{$post?->title}}" name="title" type="text" class="form-control" id="postInput">
