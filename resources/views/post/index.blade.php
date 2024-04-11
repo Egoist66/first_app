@@ -14,6 +14,13 @@
                 </div>
             </div>
 
+            
+        <div class="col">
+            {{$posts->links()}}
+
+
+        </div>
+
         </div>
         @if(!count($posts))
 
@@ -38,7 +45,8 @@
                     </div>
                     <h2>{{$post->title}}</h2>
                     <p>id: {{$post->id}}</p>
-                    <p>category: <b>{{(int)$post->category_id === 1 ? 'Cats' : 'Dogs'}}</b></p>
+                    {{-- <p>category: <b>{{$post->category_name}}</b></p> --}}
+                    <p>likes: {{$post->likes}}</p>
                     <p><b class="bg-primary-subtle p-2">created at: {{$post->created_at}}</b></p>
                     <p><b class="bg-primary-subtle p-2">updated at: {{$post->updated_at}}</b></p>
                     <div class="row">

@@ -14,7 +14,9 @@ class IndexController extends BaseController
     public function __invoke(): View {
 
 
-        $posts = PostDto::adaptPosts(Post::all());
+        //$posts = PostDto::adaptPosts(Post::query()->with('category')->get());
+        $posts = Post::paginate(10);
+        //dd($posts);
         return view('post.index', ["posts" => $posts]);
     }
 

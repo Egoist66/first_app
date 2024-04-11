@@ -30,7 +30,7 @@
 <body>
 
 
-@include('parts.header')
+@includeIf('parts.header')
 
 
 <main class="mt-5 mb-5">
