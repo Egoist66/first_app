@@ -68,4 +68,16 @@ Route::fallback(static fn() => "<h2>Not found</h2>");
 
 
 
+class F1 {
 
+    public function __call($name, $args) {
+        $this->say($args[0]);
+    }
+
+    public function say(string $name): void {
+
+        echo "Say $name";
+    }
+}
+
+call_user_func([new F1(), '2'], 'Farid');

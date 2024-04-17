@@ -29,7 +29,21 @@ class PostFilter extends AbstractFilter
     public function title(Builder $builder, $value) {
 
         if ($value != null) {
-            $builder->where('title', 'like', '%' . $value . '%');
+            $builder->where('title', 'like', "%{$value}%");
+        }
+    }
+
+    public function content(Builder $builder, $value) {
+
+        if ($value != null) {
+            $builder->where('content', 'like', "%{$value}%");
+        }
+    }
+
+    public function categoryId(Builder $builder, $value) {
+
+        if ($value != null) {
+            $builder->where('category_id', 'like', "%{$value}%");
         }
     }
 }

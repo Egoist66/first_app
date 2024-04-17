@@ -8,10 +8,10 @@ use App\Http\Filters\IFilter;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Filterable
-{
+{ 
     /**
      * @param Builder $builder
-     * @param Ifilter $filter
+     * @param IFilter $filter
      *
      * @return Builder
      */
