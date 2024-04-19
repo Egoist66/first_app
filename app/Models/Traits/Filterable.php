@@ -4,18 +4,18 @@
 namespace App\Models\Traits;
 
 
-use App\Http\Filters\IFilter;
+use App\Http\Filters\FilterInterface;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Filterable
-{ 
+{
     /**
      * @param Builder $builder
-     * @param IFilter $filter
+     * @param FilterInterface $filter
      *
      * @return Builder
      */
-    public function scopeFilter(Builder $builder, IFilter $filter)
+    public function scopeFilter(Builder $builder, FilterInterface $filter)
     {
         $filter->apply($builder);
 

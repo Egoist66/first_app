@@ -21,8 +21,8 @@ class IndexController extends BaseController
         //$posts = PostDto::adaptPosts(Post::query()->with('category')->get());
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($data)]);
-        $posts = Post::filter($filter);
-        dd($posts);
+        ;
+        $posts = Post::filter($filter)->paginate(10);
         // unset($posts);
 
         // $query = Post::query();

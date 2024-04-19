@@ -16,7 +16,7 @@
 
 
             <div class="col">
-                {{ $posts->links() }}
+                {{ $posts->withQueryString()->links() }}
 
 
             </div>

@@ -26,8 +26,7 @@ class FilterIndexRequest extends FormRequest
             'title' => 'string',
             'content' => 'string',
             'category_id' => 'string',
-            'image' => 'string',
-            'tags' => 'array'
+          
 
         ];
     }

@@ -1,12 +1,13 @@
 <?php
 
+
 namespace App\Http\Filters;
+
 
 use Illuminate\Database\Eloquent\Builder;
 
-abstract class AbstractFilter implements IFilter
+abstract class AbstractFilter implements FilterInterface
 {
-
     /** @var array */
     private $queryParams = [];
 

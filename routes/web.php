@@ -6,6 +6,7 @@ use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\Post\DestroyController;
 use App\Http\Controllers\Post\EditController;
 use App\Http\Controllers\Post\IndexController;
+use App\Http\Controllers\Admin\AdminIndexController;
 use App\Http\Controllers\Post\ShowController;
 use App\Http\Controllers\Post\StoreController;
 use App\Http\Controllers\Post\UpdateController;
@@ -24,7 +25,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {return view('welcome');});
 Route::get('/employees', [EmployeesController::class, 'index']);
 Route::get('/employees/{employee}', static function (Employee $employee) {
 
@@ -50,6 +50,46 @@ Route::group(['namespace' => 'Post'], static function () {
 
 });
 
+
+Route::group(['namespace' => 'Admin'], static function () {
+
+    Route::get('/admin', [AdminIndexController::class, '__invoke'])
+        ->name('admin.index');
+
+});
+
+
+
+
+Route::view('/about', 'about')->name('about.index');
+Route::view('/', 'home')->name('home.index');
+Route::view('/contact', 'contact')->name('contact.index');
+Route::fallback(static fn() => "<h2>Not found</h2>");
+
+
+
+
+
+
+
+
+
+
+// class F1 {
+
+//     public function __call($name, $args) {
+//         $this->say($args[0]);
+//     }
+
+//     public function say(string $name): void {
+
+//         echo "Say $name";
+//     }
+// }
+
+//call_user_func([new F1(), '2'], 'Farid');
+
+
 //Route::resource('posts', PostsController::class)->names([
 //    'create' => 'post.create',
 //    'store' => 'post.store',
@@ -59,25 +99,7 @@ Route::group(['namespace' => 'Post'], static function () {
 //    'show' => 'post.show',
 //    'index' => 'post.index'
 //]);
-Route::resource('photos', PhotoController::class);
 
-Route::view('/about', 'about')->name('about.index');
-Route::view('/', 'welcome')->name('home.index');
-Route::view('/contact', 'contact')->name('contact.index');
-Route::fallback(static fn() => "<h2>Not found</h2>");
+// Route::resource('photos', PhotoController::class);
 
-
-
-class F1 {
-
-    public function __call($name, $args) {
-        $this->say($args[0]);
-    }
-
-    public function say(string $name): void {
-
-        echo "Say $name";
-    }
-}
-
-call_user_func([new F1(), '2'], 'Farid');
+//Route::get('/', function () {return view('welcome');});
