@@ -1,16 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminIndexController;
 use App\Http\Controllers\EmployeesController;
-use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\Post\DestroyController;
 use App\Http\Controllers\Post\EditController;
 use App\Http\Controllers\Post\IndexController;
-use App\Http\Controllers\Admin\AdminIndexController;
 use App\Http\Controllers\Post\ShowController;
 use App\Http\Controllers\Post\StoreController;
 use App\Http\Controllers\Post\UpdateController;
-use App\Http\Controllers\PostsController;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 

@@ -18,8 +18,8 @@ class EditController extends BaseController
 
 
         $tags = Tag::all();
-
         $categories = Category::all();
+
         return view('post.edit', [
             "post" => new PostDto($post),
             "categories" => $categories,

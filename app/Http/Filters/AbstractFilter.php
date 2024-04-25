@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 abstract class AbstractFilter implements FilterInterface
 {
     /** @var array */
-    private $queryParams = [];
+    private array $queryParams;
 
     /**
      * AbstractFilter constructor.
@@ -47,7 +47,7 @@ abstract class AbstractFilter implements FilterInterface
      *
      * @return mixed|null
      */
-    protected function getQueryParam(string $key, $default = null)
+    protected function getQueryParam(string $key, mixed $default = null)
     {
         return $this->queryParams[$key] ?? $default;
     }

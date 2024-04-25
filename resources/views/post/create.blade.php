@@ -36,7 +36,7 @@
 
             @error('image')
 
-            <p class="text-danger p-2 mt-2 rounded">{{$message}}</p>
+                <p class="text-danger p-2 mt-2 rounded">{{$message}}</p>
 
             @enderror
 

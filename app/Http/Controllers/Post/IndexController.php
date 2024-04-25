@@ -14,14 +14,14 @@ use App\Http\Requests\Post\FilterIndexRequest;
 class IndexController extends BaseController
 {
 
-    public function __invoke(FilterIndexRequest $request): View {
+    public function __invoke(FilterIndexRequest $request): View
+    {
 
         $data = $request->validated();
 
         //$posts = PostDto::adaptPosts(Post::query()->with('category')->get());
 
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($data)]);
-        ;
         $posts = Post::filter($filter)->paginate(10);
         // unset($posts);
 
@@ -34,7 +34,7 @@ class IndexController extends BaseController
         //     $query->where('title', 'like', '%' . $data['title'] . '%');
         // }
         // $posts = $query->get();
-        
+
         // dd($posts);
 
         return view('post.index', ["posts" => $posts]);
