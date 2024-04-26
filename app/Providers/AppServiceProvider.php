@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -22,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFive();
         Paginator::useBootstrapFour();
-        //   View::share('key', 'value'); глобальные данные для шаблнов
+        $posts = \App\Models\Post::all();
+        View::share('navposts', $posts);
+
     }
 }

@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Post;
 
 use App\Dto\PostDto;
-use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\View\View;
 

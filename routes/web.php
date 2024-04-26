@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminIndexController;
+use App\Http\Controllers\Admin\AdminSearchController;
 use App\Http\Controllers\Admin\Post\AdminShowController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\Post\CreateController;
@@ -56,6 +57,9 @@ Route::get('/admin', [AdminIndexController::class, '__invoke'])
 Route::prefix('admin')->namespace('Admin')->group(static function () {
     Route::get('/posts/{post}', [AdminShowController::class, '__invoke'])
         ->name('admin.post.show');
+
+    Route::post('/search', [AdminSearchController::class, '__invoke'])
+        ->name('admin.search');
 });
 
 Route::view('/about', 'about')->name('about.index');

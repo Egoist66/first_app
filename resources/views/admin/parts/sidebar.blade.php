@@ -86,13 +86,23 @@
                         <!-- SidebarSearch Form -->
                         <li class="form-inline">
                             <div class="input-group" data-widget="sidebar-search-custom">
-                                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                                       aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-sidebar">
-                                        <i class="fas fa-search fa-fw"></i>
-                                    </button>
-                                </div>
+                                <form x-data="{search: ''}" @style('display: flex; gap: 10px') action="{{route('admin.search')}}" method="post">
+                                    @method('post')
+                                    @csrf
+                                    <input x-model="search" style="width: 81%" name="title" class="form-control form-control-sidebar" type="search" placeholder="Search a post"
+                                           aria-label="Search">
+                                    @error('title')
+                                        <p class="text-danger text-sm">{{$message}}</p>
+                                    @enderror
+                                    <div class="input-group-append">
+                                        <button :disabled="search === ''" type="submit" class="btn btn-sidebar">
+                                            <i class="fas fa-search fa-fw"></i>
+                                        </button>
+                                    </div>
+
+                                </form>
+
+
                             </div>
                         </li>
 

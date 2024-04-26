@@ -77,10 +77,10 @@
 </div>
 
 
-{{--<!-- Scripts -->--}}
+<!-- Scripts -->
 
-{{--@includeIf('admin.meta.script')--}}
+@includeIf('admin.meta.script')
 
-{{--<!-- /Scripts -->--}}
+<!-- /Scripts -->
 </body>
 </html>

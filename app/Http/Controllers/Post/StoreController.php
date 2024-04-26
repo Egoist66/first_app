@@ -3,12 +3,8 @@
 
 namespace App\Http\Controllers\Post;
 
-use App\Dto\PostDto;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
-use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
 class StoreController extends BaseController
 {

@@ -3,12 +3,10 @@
 
 namespace App\Http\Controllers\Post;
 
-use App\Dto\PostDto;
+use App\Http\Filters\PostFilter;
+use App\Http\Requests\Post\FilterIndexRequest;
 use App\Models\Post;
 use Illuminate\View\View;
-use App\Http\Filters\PostFilter;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\FilterIndexRequest;
 
 
 class IndexController extends BaseController
