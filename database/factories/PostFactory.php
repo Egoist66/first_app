@@ -14,9 +14,9 @@ class PostFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    final public function definition(): array
     {
-    
+
         return [
             'title' => $this->faker->sentence(5),
             'content' => $this->faker->text(),

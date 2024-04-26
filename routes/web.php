@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminIndexController;
+use App\Http\Controllers\Admin\Post\AdminShowController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\Post\CreateController;
 use App\Http\Controllers\Post\DestroyController;
@@ -49,15 +50,13 @@ Route::group(['namespace' => 'Post'], static function () {
 });
 
 
-Route::group(['namespace' => 'Admin'], static function () {
 
-    Route::get('/admin', [AdminIndexController::class, '__invoke'])
-        ->name('admin.index');
-
+Route::get('/admin', [AdminIndexController::class, '__invoke'])
+    ->name('admin.index');
+Route::prefix('admin')->namespace('Admin')->group(static function () {
+    Route::get('/posts/{post}', [AdminShowController::class, '__invoke'])
+        ->name('admin.post.show');
 });
-
-
-
 
 Route::view('/about', 'about')->name('about.index');
 Route::view('/', 'home')->name('home.index');
@@ -101,3 +100,15 @@ Route::fallback(static fn() => "<h2>Not found</h2>");
 // Route::resource('photos', PhotoController::class);
 
 //Route::get('/', function () {return view('welcome');});
+
+
+//Route::group(['namespace' => 'Admin'], static function () {
+//
+//    Route::get('/admin', [AdminIndexController::class, '__invoke'])
+//        ->name('admin.index');
+//
+//    Route::get('/admin/posts/{post}', [AdminShowController::class, '__invoke'])
+//    ->name('admin.post.show');
+//
+//
+//});
