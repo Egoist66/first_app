@@ -19,7 +19,7 @@ class PostDto
 
     public string $like;
 
-    //public string $category_name;
+    public $category_name;
 
     public function __construct(Post $post)
     {
@@ -28,6 +28,7 @@ class PostDto
         $this->id = $post->id;
         $this->content = $post->content;
         $this->category_id = $post->category_id;
+        $this->category_name = $post->category->title;
         $this->created_at = $post->created_at;
         $this->updated_at = $post->updated_at;
         $this->tags = $post->tags;

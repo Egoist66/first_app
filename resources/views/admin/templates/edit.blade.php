@@ -1,13 +1,13 @@
-@extends('layouts.main')
-@section('title')
+@extends('admin.index')
+@section('admin-title')
     Edit post
 @endsection
 
-@section('content')
+@section('admin-content')
 
     <div class="edit-post">
 
-        <form method="post" action="">
+        <form method="post" action="{{route('admin.post.update', $post?->id)}}">
             @csrf
             @method('put')
             <div class="mb-3">
@@ -52,8 +52,10 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Update post</button>
+            <div class="pb-3">
+                <button type="submit" class="btn btn-primary">Update post</button>
 
+            </div>
 
         </form>
 

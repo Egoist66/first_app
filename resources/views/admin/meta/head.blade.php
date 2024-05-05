@@ -5,7 +5,12 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
           href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
-
+    <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css')}}">
+    <style>
+        .create-btn:hover a {
+            color: white;
+        }
+    </style>
     @vite([
        'public/plugins/jquery/jquery.min.js',
        'public/plugins/jquery-ui/jquery-ui.min.js',

@@ -36,8 +36,8 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class= mt-5">
-                    <div class="card">
+                <div class=mt-5">
+                    <div class="card welcome-card">
                         <div class="card-header">
                             Welcome to the Admin Panel
                         </div>
@@ -45,6 +45,20 @@
                             <p class="card-text">Hello, Admin! This is your dashboard.</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="pb-5">
+                            @if(request()->url() === route('admin.index'))
+                                <button class="btn create-btn btn-outline-primary">
+                                    <a style="text-decoration: none" href="{{ route('admin.post.create') }}">Create post</a>
+                                </button>
+                            @endif
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

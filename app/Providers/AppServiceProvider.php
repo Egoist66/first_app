@@ -23,7 +23,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFive();
         Paginator::useBootstrapFour();
+
         $posts = \App\Models\Post::all();
+        View::share('posts', $posts);
         View::share('navposts', $posts);
 
     }

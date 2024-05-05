@@ -5,9 +5,9 @@
                 <nav>
 
                     <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('home.index')}}">Home</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{route('home.index')}}">Home</a>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('post.index')}}">Blog</a>
                         </li>

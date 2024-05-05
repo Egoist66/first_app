@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Post;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\Admin\AdminSearchRequest;
-use App\Models\Post;
+use Illuminate\View\View;
 
 class AdminSearchController extends BaseController
 {
 
-    public function __invoke(AdminSearchRequest $request){
+    public function __invoke(AdminSearchRequest $request): View{
 
         $data = $request->validated();
 

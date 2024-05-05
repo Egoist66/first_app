@@ -1,9 +1,8 @@
-@extends('layouts.main')
-@section('title')
-    Post - {{$post->title}}
-
+@extends('admin.index')
+@section('admin-title')
+    Single post
 @endsection
-@section('content')
+@section('admin-content')
     <div class="card-body card">
         <div class="mb-3">
             @if(!$post->image)
@@ -15,19 +14,27 @@
         <h2>{{$post->title}}</h2>
         <p>id: {{$post->id}}</p>
         <p>description: {{$post->content}}</p>
-        <p>category: {{ $post->category_name }}</p>
-        <div class="mb-3">
-            @foreach($post->tags as $tag)
-                <span class="badge bg-secondary">{{$tag->title}}</span>
-            @endforeach
-        </div>
         <div class="row mb-5">
             <div class="col-2">
                 <a class="link-primary" href="{{route('post.index')}}">Back to insights</a>
             </div>
 
+            <div class="col-2">
+                <a class="link-primary" href="{{route('admin.post.edit', $post->id)}}">Edit post</a>
+            </div>
+
         </div>
 
+        <div>
+            <form method="post" action="{{route('admin.post.destroy', $post->id)}}">
+                @method('delete')
+                @csrf
+
+                <button class="btn btn-outline-danger" href="">Delete post</button>
+
+
+            </form>
+        </div>
     </div>
 @endsection
 

@@ -14,16 +14,11 @@ class AdminService
 
         $title = $data['title'];
 
-        $post = Post::query()->where('title', $title)->first();
-
-        if ($post) {
-
-            return $post;
+        return Post::query()->where('title', 'like', '%'.$title.'%')->first();
 
 
-        }
 
-        return null;
+
     }
 
 
